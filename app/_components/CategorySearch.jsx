@@ -33,13 +33,15 @@ const CategorySearch = () => {
       <h2 className="text-gray-500 text-xl">
         Search your Doctor and Book Appointment in one click
       </h2>
-      <div className="flex w-full mt-3 max-w-sm items-center space-x-2">
-        <Input type="text" placeholder="Search..." />
-        <Button type="submit" className="bg-green-500 hover:bg-green-400">
-          <Search className="h-4 w-4 mr-2" />
-          Search
-        </Button>
-      </div>
+      <Link href={"/search/" + "Dentist"}>
+        <div className="flex w-full mt-3 max-w-sm items-center space-x-2">
+          <Input type="text" placeholder="Search..." />
+          <Button type="submit" className="bg-green-500 hover:bg-green-400">
+            <Search className="h-4 w-4 mr-2" />
+            Search
+          </Button>
+        </div>
+      </Link>
       <div className="grid grid-cols-3 mt-5 md:grid-cols-4 lg:grid-cols-6">
         {category.length > 0
           ? category.map(

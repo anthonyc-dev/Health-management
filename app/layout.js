@@ -18,7 +18,7 @@ const outfit = Outfit({ subsets: ["latin"] });
 // });
 
 export const metadata = {
-  title: "Virhtual Health Clinic",
+  title: "Health Appointment",
   description:
     "A healthcare patient management System designed to streamline patient registration, appointment scheduling, and medical records management for healthcare providers.",
   icons: {
@@ -31,11 +31,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={outfit.className}>
         <div className="md:px-28">
-          <Header />
+          {/* <Header /> */}
           {children}
-          <Toaster />
+          <Toaster richColors />
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

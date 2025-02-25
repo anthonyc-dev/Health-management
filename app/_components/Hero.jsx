@@ -1,4 +1,7 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { LoginLink } from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image";
 import React from "react";
 
@@ -26,15 +29,16 @@ const Hero = () => {
             </h2>
 
             <p className="mt-4 text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui
-              hic atque tenetur quis eius quos ea neque sunt, accusantium soluta
-              minus veniam tempora deserunt? Molestiae eius quidem quam
-              repellat.
+              Streamline Your Healthcare Journey: Connect with Top Doctors,
+              Schedule Appointments, and Keep Track of Your Medical History All
+              in One Place
             </p>
 
-            <Button className="bg-green-500 hover:bg-green-400 mt-10">
-              Get Started
-            </Button>
+            <LoginLink>
+              <Button className="bg-green-500 hover:bg-green-400 mt-10">
+                Get Started
+              </Button>
+            </LoginLink>
           </div>
         </div>
       </div>

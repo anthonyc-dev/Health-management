@@ -77,10 +77,10 @@ const BookAppointment = ({
     }
 
     // Validate the note (optional, depending on whether you want to make it mandatory)
-    if (!note || note.trim() === "") {
-      toast.error("Please add a note for the appointment.");
-      return;
-    }
+    // if (!note || note.trim() === "") {
+    //   toast.error("Please add a note for the appointment.");
+    //   return;
+    // }
 
     try {
       // Add a new document with the booking data to the "appointment" collection
@@ -97,7 +97,7 @@ const BookAppointment = ({
         note: note,
       });
       console.log("Booking saved successfully!");
-      toast("Booking Confirmation sent on Email");
+      toast.success("Booking successfully!");
     } catch (e) {
       console.error("Error adding document: ", e);
     }

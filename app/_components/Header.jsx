@@ -14,6 +14,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const Header = () => {
   const Menu = [
@@ -25,7 +30,7 @@ const Header = () => {
     {
       id: 2,
       name: "All doctors",
-      path: "/doctor",
+      path: "/doctorList",
     },
     {
       id: 3,
@@ -46,36 +51,49 @@ const Header = () => {
   }, [user]);
 
   return (
-    <div className="flex items-center justify-between px-4 shadow-sm">
+    <div className="flex items-center justify-between px-5">
       <div className="flex items-center gap-10 w-full">
         <Link href={"/"}>
           <Image src="/logo4.png" alt="logo" width={120} height={120} />
         </Link>
         <ul className="md:flex gap-8 hidden">
-          {Menu.map((item) => (
-            <Link href={item.path}>
-              <li
-                className="hover:text-green-500 cursor-pointer hover:scale-105 transition-all ease-in-out"
-                key={item.id}
-              >
-                {item.name}
-              </li>
-            </Link>
-          ))}
+          {Menu.map((item) => {
+            if (user && (item.name === "About" || item.name === "Contact Us")) {
+              return null;
+            }
+            return (
+              <Link href={item.path} key={item.id}>
+                <li className="hover:text-green-500 cursor-pointer hover:scale-105 transition-all ease-in-out">
+                  {item.name}
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </div>
 
       {user ? (
         <Popover>
-          <PopoverTrigger>
-            <Image
-              src={user?.picture}
-              alt="profile-image"
-              width={50}
-              height={50}
-              className="rounded-full"
-            />
-          </PopoverTrigger>
+          <HoverCard>
+            <HoverCardTrigger>
+              <PopoverTrigger>
+                <Image
+                  src={user?.picture}
+                  alt="profile-image"
+                  width={50}
+                  height={50}
+                  className="rounded-full"
+                />
+              </PopoverTrigger>
+            </HoverCardTrigger>
+            <HoverCardContent>
+              <div>
+                <p>{user.email}</p>
+                <p>{user.given_name + " " + user.family_name}</p>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
+
           <PopoverContent>
             <ul className="flex flex-col gap-2">
               <Link

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "@/FirebaseConfig";
 import DoctorDetail from "../_components/DoctorDetail";
+import Header from "@/app/_components/Header";
 
 const Details = ({ params }) => {
   const [doctor, setDoctor] = useState([]);
@@ -50,19 +51,22 @@ const Details = ({ params }) => {
   };
 
   return (
-    <div className="p-5 md:px-20">
-      <h2 className="font-bold text-[22px]">Details</h2>
+    <>
+      <Header />
+      <div className="p-5 md:px-20">
+        <h2 className="font-bold text-[22px]">Details</h2>
 
-      <div className="grid grid-cols-1 mid:grid-cols-4">
-        {/**Docotr details */}
-        <div className="col-span-3">
-          {/**Docotr image */}
-          <DoctorDetail doctor={doctor} />
+        <div className="grid grid-cols-1 mid:grid-cols-4">
+          {/**Docotr details */}
+          <div className="col-span-3">
+            {/**Docotr image */}
+            <DoctorDetail doctor={doctor} />
+          </div>
+          {/**Doctor sujestion */}
+          <div></div>
         </div>
-        {/**Doctor sujestion */}
-        <div></div>
       </div>
-    </div>
+    </>
   );
 };
 

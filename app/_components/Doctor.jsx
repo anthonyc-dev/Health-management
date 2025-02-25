@@ -6,7 +6,7 @@ import { db } from "@/FirebaseConfig";
 import Image from "next/image";
 import Link from "next/link";
 
-const Doctor = ({ heading = "Popular Doctors" }) => {
+const Doctor = ({ heading = "Doctors" }) => {
   const [doctors, setDoctors] = useState([]);
   const [loading, setLoading] = useState(true); // Track loading state
 
@@ -49,7 +49,7 @@ const Doctor = ({ heading = "Popular Doctors" }) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 mt-4">
         {loading
           ? // Render six skeleton loaders
-            Array(6)
+            Array(8)
               .fill(0)
               .map((_, index) => (
                 <div
